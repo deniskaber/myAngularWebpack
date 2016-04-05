@@ -1,0 +1,19 @@
+<form name="loginForm" novalidate ng-submit="loginCtrl.doLogin()">
+    <div class="form-group">
+        <label>Name:</label>
+        <input name="login" type="text" class="form-control" required ng-model="loginCtrl.user.login">
+    </div>
+
+    <div class="form-group">
+        <label>Email:</label>
+        <input name="password" type="password" class="form-control" required ng-model="loginCtrl.user.password">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block" ng-disabled="loginForm.$invalid">
+        OK
+    </button>
+
+
+</form>
+<button class="btn btn-primary btn-block" ng-disabled="loginForm.$invalid" ng-click="loginCtrl.doFakeHttpLogin()">
+    Fake OK
+</button>
