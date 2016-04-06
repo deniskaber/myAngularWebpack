@@ -1,5 +1,5 @@
-loginController.$inject = [ 'session' ];
-function loginController(session){
+loginController.$inject = [ 'session','$state' ];
+function loginController(session, $state){
     var self = this;
 
     self.user = { };
@@ -9,9 +9,10 @@ function loginController(session){
 
         session.login(self.user).then(function(result) {
             if (result) {
-                alert('Успешно');
+                console.log('login success');
+                $state.go('catalogs');
             } else {
-                alert('Логин / пароль не подходит');
+                console.log('login fail');
             }
         });
     };

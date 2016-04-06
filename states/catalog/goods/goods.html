@@ -1,0 +1,9 @@
+<div id="goods-mastergrid" ui-grid="goodsCtrl.gridOptions" ui-grid-selection class="catalog-top-grid"></div>
+<div class="panel panel-default catalog-bottom-grid">
+    <div class="panel-heading" ng-click="goodsCtrl.isCollapsed = !goodsCtrl.isCollapsed">
+        <h3 class="panel-title">Подчиненный справочник</h3>
+    </div>
+    <div class="panel-body" uib-collapse="goodsCtrl.isCollapsed">
+        НОМЕНКЛАТУРА
+    </div>
+</div>
