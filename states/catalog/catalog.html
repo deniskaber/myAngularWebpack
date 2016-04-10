@@ -1,13 +1,34 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
+            <span>Пользователь: {{::catalogCtrl.user.name}}</span>
+            <span>Справочник: {{::catalogCtrl.currentCatalog}}</span>
             <button type="button" class="btn btn-default navbar-btn" ng-click="catalogCtrl.navigateBack()">Назад</button>
         </div>
     </div>
 </nav>
 <div class="catalog-wrapper">
     <div class="catalog-lbar">
-        leftBar
+        <button type="button" class="btn btn-primary btn-lg btn-block"
+                ng-click="catalogCtrl.masterSearchWindow()"
+                tooltip-placement="right" uib-tooltip="Комбинированный поиск">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block"
+                ng-click="catalogCtrl.masterInverseSelection()"
+                tooltip-placement="right" uib-tooltip="Инверсия выбора">
+            <span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block"
+                tooltip-placement="right" uib-tooltip="Групповая установка свойств">
+            <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block">
+            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block">
+            <span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span>
+        </button>
     </div>
     <div ui-view class="catalog-content"></div>
 </div>

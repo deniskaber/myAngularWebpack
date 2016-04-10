@@ -5,6 +5,7 @@ var app = angular.module('myApp',[
         'ui.bootstrap',
         'ui.grid',
         'ui.grid.selection',
+        'ui.grid.pagination',
         require('./services/services.module.js').name,
         require('./../states/login/login.module.js').name,
         require('./../states/catalog/catalog.module.js').name,
@@ -20,14 +21,38 @@ var app = angular.module('myApp',[
     
     }]);
 
-app.controller('mainController', ['$scope', function($scope) {
-        $scope.user = {
-            name: 'Anonymus'
-        };
+app.controller('mainController', ['$rootScope', function($rootScope) {
+    window.app = {
 
-        $scope.counter = 0;
+    };
+    window.app.rootScope = $rootScope;
 
-        $scope.$watch(
+    window.app.getWatchers = function(root) {
+        root = angular.element(root || document.documentElement);
+        var watcherCount = 0;
+
+        function getElemWatchers(element) {
+            var isolateWatchers = getWatchersFromScope(element.data().$isolateScope);
+            var scopeWatchers = getWatchersFromScope(element.data().$scope);
+            var watchers = scopeWatchers.concat(isolateWatchers);
+            angular.forEach(element.children(), function (childElement) {
+                watchers = watchers.concat(getElemWatchers(angular.element(childElement)));
+            });
+            return watchers;
+        }
+
+        function getWatchersFromScope(scope) {
+            if (scope) {
+                return scope.$$watchers || [];
+            } else {
+                return [];
+            }
+        }
+
+        return getElemWatchers(root).length;
+    };
+
+    $rootScope.$watch(
             function() { console.log('digest'); }
         );
     }]);

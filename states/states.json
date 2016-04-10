@@ -1,0 +1,62 @@
+{
+  "name": "root",
+  "items": [
+    {
+      "name": "login",
+      "type": "default",
+      "references": "catalogs"
+    },
+    {
+      "name": "catalogs",
+      "references": "catalog/:type"
+    },
+    {
+      "name": "attributePanel"
+    },
+    {
+      "name": "catalog",
+      "data": "type",
+      "items": [
+        {
+          "name": "master",
+          "items": [
+            {
+              "name": "search"
+            },
+            {
+              "name": "selectionInverse"
+            },
+            {
+              "name": "groupSet"
+            },
+            {
+              "name": "create"
+            },
+            {
+              "name": "createOn"
+            },
+            {
+              "name": "history"
+            }
+          ]
+        },
+        {
+          "name": "synced",
+          "items": [
+            {
+              "name": "search"
+            }
+          ]
+        },
+        {
+          "name": "slave",
+          "items": [
+            {
+              "name": "search"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

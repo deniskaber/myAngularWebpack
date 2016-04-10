@@ -1,9 +1,11 @@
-<div id="goods-mastergrid" ui-grid="goodsCtrl.gridOptions" ui-grid-selection class="catalog-top-grid"></div>
-<div class="panel panel-default catalog-bottom-grid">
-    <div class="panel-heading" ng-click="goodsCtrl.isCollapsed = !goodsCtrl.isCollapsed">
-        <h3 class="panel-title">Подчиненный справочник</h3>
-    </div>
-    <div class="panel-body" uib-collapse="goodsCtrl.isCollapsed">
-        НОМЕНКЛАТУРА
-    </div>
+<div class="catalog-top-grid-wrapper">
+    <div id="goods-mastergrid" ui-grid="goodsCtrl.masterGridOptions" ui-grid-selection ui-grid-pagination class="catalog-top-grid"></div>
+</div>
+<div class="catalog-bottom-grid-wrapper">
+    <uib-tabset active="active">
+        <uib-tab index="0" heading="Отвязать">
+            <div id="goods-slavegrid" ui-grid="goodsCtrl.slaveGridOptions" ui-grid-selection class="catalog-bottom-grid"></div>
+        </uib-tab>
+        <uib-tab index="1" heading="Привязать">Static content</uib-tab>
+    </uib-tabset>
 </div>

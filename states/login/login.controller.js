@@ -1,4 +1,4 @@
-loginController.$inject = [ 'session','$state' ];
+loginController.$inject = ['session','$state' ];
 function loginController(session, $state){
     var self = this;
 
@@ -28,8 +28,6 @@ function loginController(session, $state){
             }
         });
     };
-
-    console.log('success');
 }
 
 module.exports = loginController;

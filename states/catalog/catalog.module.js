@@ -7,6 +7,7 @@ var catalogModule = angular.module('app.catalog', [
     ])
     .config(['$stateProvider', function($stateProvider){
         $stateProvider.state('catalog', {
+            abstract: true,
             url: '/catalog',
             template: require('./catalog.html'),
             controller: require('./catalog.controller.js'),

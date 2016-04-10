@@ -6,7 +6,10 @@ var storesModule = angular.module('app.catalog.stores',[])
             url: '/stores',
             template: require('./stores.html'),
             controller: require('./stores.controller.js'),
-            controllerAs: 'storesCtrl'
+            controllerAs: 'storesCtrl',
+            data: {
+                title: 'Торговые точки'
+            }
         });
     }]);
 

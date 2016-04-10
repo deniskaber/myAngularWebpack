@@ -1,5 +1,6 @@
 "use strict";
 
+require('./login.less');
 var loginModule = angular.module('app.login',[])
     .config(['$stateProvider', function($stateProvider){
         $stateProvider.state('login', {
@@ -12,7 +13,7 @@ var loginModule = angular.module('app.login',[])
     /*.directive('login', function() {
         return {
             restrict: 'E',
-            replace: true,
+            //replace: true,
             scope: {},
             template: require('./login.html'),
             controller: require('./login.controller.js'),

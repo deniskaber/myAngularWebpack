@@ -7,7 +7,10 @@ var goodsModule = angular.module('app.catalog.goods',[])
             url: '/goods',
             template: require('./goods.html'),
             controller: require('./goods.controller.js'),
-            controllerAs: 'goodsCtrl'
+            controllerAs: 'goodsCtrl',
+            data: {
+                title: 'Номенклатура'
+            }
         });
     }]);
 
