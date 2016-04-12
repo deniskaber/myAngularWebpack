@@ -3,7 +3,7 @@
         <div class="navbar-header">
             <span>Пользователь: {{::catalogCtrl.user.name}}</span>
             <span>Справочник: {{::catalogCtrl.currentCatalog}}</span>
-            <button type="button" class="btn btn-default navbar-btn" ng-click="catalogCtrl.navigateBack()">Назад</button>
+            <button type="button" class="btn btn-primary navbar-btn" ng-click="catalogCtrl.navigateBack()">Сменить</button>
         </div>
     </div>
 </nav>
@@ -30,5 +30,19 @@
             <span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span>
         </button>
     </div>
-    <div ui-view class="catalog-content"></div>
+    <div class="catalog-content">
+        <div class="catalog-top-grid-wrapper">
+            <div id="mastergrid" ui-grid="catalogCtrl.masterGridOptions" ui-grid-selection ui-grid-pagination class="catalog-top-grid"></div>
+        </div>
+        <div class="catalog-bottom-grid-wrapper">
+            <uib-tabset active="active">
+                <uib-tab index="0" heading="Отвязать">
+                    <div id="syncedgrid" ui-grid="catalogCtrl.syncedGridOptions" ui-grid-selection class="catalog-bottom-grid"></div>
+                </uib-tab>
+                <uib-tab index="1" heading="Привязать">
+                    <div id="slavegrid" ui-grid="catalogCtrl.slaveGridOptions" ui-grid-selection class="catalog-bottom-grid"></div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
 </div>

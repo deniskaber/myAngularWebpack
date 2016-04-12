@@ -1,14 +1,11 @@
 "use strict";
 
 require('./catalog.less');
-var catalogModule = angular.module('app.catalog', [
-        require('./goods/goods.module.js').name,
-        require('./stores/stores.module.js').name
-    ])
+var catalogModule = angular.module('app.catalog', [])
+    .factory('masterGridService',require('./masterGrid.service.js'))
     .config(['$stateProvider', function($stateProvider){
         $stateProvider.state('catalog', {
-            abstract: true,
-            url: '/catalog',
+            url: '/catalog/{catalogId}',
             template: require('./catalog.html'),
             controller: require('./catalog.controller.js'),
             controllerAs: 'catalogCtrl'

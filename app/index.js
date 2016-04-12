@@ -7,9 +7,9 @@ var app = angular.module('myApp',[
         'ui.grid.selection',
         'ui.grid.pagination',
         require('./services/services.module.js').name,
-        require('./../states/login/login.module.js').name,
-        require('./../states/catalog/catalog.module.js').name,
-        require('./../states/catalogs/catalogs.module.js').name
+        require('./states/login/login.module.js').name,
+        require('./states/catalog/catalog.module.js').name,
+        require('./states/catalogs/catalogs.module.js').name
     ])
     .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
         $stateProvider.state('default', {

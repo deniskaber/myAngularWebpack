@@ -4,9 +4,9 @@ function catalogsController(session, $state){
 
     self.navigate = navigate;
 
-    function navigate(catalog) {
-        console.log(catalog);
-        $state.go(catalog);
+    function navigate(catalog, params) {
+        console.log(catalog, params);
+        $state.go(catalog, {'catalogId': params});
     }
 
 }
